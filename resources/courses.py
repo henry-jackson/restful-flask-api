@@ -1,6 +1,6 @@
-from flask import jsonify
+from flask import jsonify, Blueprint
 
-from flask_restful import Resource
+from flask_restful import Resource, Api
 
 import models
 
@@ -19,3 +19,17 @@ class Course(Resource):
 
     def delete(self, id):
         return jsonify({'title': 'Python Basics'})
+
+
+courses_api = Blueprint('resources.courses', __name__)
+api = Api(courses_api)
+api.add_resource(
+    CourseList,
+    '/courses',
+    endpoint='courses'
+)
+api.add_resource(
+    Course,
+    '/courses/<int:id>',
+    endpoint='course'
+)
