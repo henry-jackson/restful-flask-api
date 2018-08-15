@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4de1017d-c4eb-4eff-9d9a-f4b71359f0b2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/courses.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/courses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/reviews.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/reviews.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,12 +46,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2837" />
+          <entry key="py" value="2905" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2837" />
+          <entry key="Python" value="2905" />
         </counts>
       </usages-collector>
     </session>
@@ -71,14 +73,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/courses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="51" column="11" lean-forward="true" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="35" />
+            <state relative-caret-position="344">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
-                <marker date="1534355701195" expanded="true" signature="352:520" ph="..." />
-                <marker date="1534355701195" expanded="true" signature="544:692" ph="..." />
-                <marker date="1534355701195" expanded="true" signature="743:1237" ph="..." />
-                <marker date="1534355701195" expanded="true" signature="2030:2069" ph="..." />
+                <marker date="1534363975571" expanded="true" signature="352:520" ph="..." />
+                <marker date="1534363975571" expanded="true" signature="544:692" ph="..." />
+                <marker date="1534363975571" expanded="true" signature="743:1237" ph="..." />
+                <marker date="1534363975571" expanded="true" signature="2143:2182" ph="..." />
               </folding>
             </state>
           </provider>
@@ -87,8 +89,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/reviews.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-97">
-              <caret line="2" column="57" lean-forward="true" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+            <state relative-caret-position="195">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -214,7 +219,7 @@
     <frame x="627" y="22" width="813" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21789883" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21789883" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -228,7 +233,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32951653" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32951653" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -283,21 +288,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/reviews.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97">
-          <caret line="2" column="57" lean-forward="true" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+        <state relative-caret-position="195">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/courses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="51" column="11" lean-forward="true" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="35" />
+        <state relative-caret-position="344">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
-            <marker date="1534355701195" expanded="true" signature="352:520" ph="..." />
-            <marker date="1534355701195" expanded="true" signature="544:692" ph="..." />
-            <marker date="1534355701195" expanded="true" signature="743:1237" ph="..." />
-            <marker date="1534355701195" expanded="true" signature="2030:2069" ph="..." />
+            <marker date="1534363975571" expanded="true" signature="352:520" ph="..." />
+            <marker date="1534363975571" expanded="true" signature="544:692" ph="..." />
+            <marker date="1534363975571" expanded="true" signature="743:1237" ph="..." />
+            <marker date="1534363975571" expanded="true" signature="2143:2182" ph="..." />
           </folding>
         </state>
       </provider>
