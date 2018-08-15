@@ -1,8 +1,23 @@
-from flask import jsonify, Blueprint
+from flask import jsonify, Blueprint, url_for
 
-from flask_restful import Resource, Api, reqparse, inputs
+from flask_restful import (Resource, Api, reqparse,
+                           inputs, fields, marshal,
+                           marshal_with)
 
 import models
+
+course_fields = {
+    'id': fields.Integer,
+    'title': fields.String,
+    'url': fields.String,
+    'reviews': fields.List(fields.String)
+}
+
+
+def add_reviews(course):
+    course.reviews = [url_for('resources.reviews.review', id=review.id)
+                      for review in course.review_set]
+    return course
 
 
 class CourseList(Resource):
@@ -24,7 +39,9 @@ class CourseList(Resource):
         super().__init__()
 
     def get(self):
-        return jsonify({'courses': [{'title': 'Python Basics'}]})
+        courses = [marshal(add_reviews(course), course_fields)
+                   for course in Course.select()]
+        return {'courses': courses}
 
     def post(self):
         args = self.reqparse.parse_args()
@@ -36,25 +53,17 @@ class Course(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
         self.reqparse.add_argument(
-            'course',
-            type=inputs.positive(),
+            'title',
             required=True,
-            help='No course provided',
+            help='No course title provided',
             location=['form', 'json']
         )
         self.reqparse.add_argument(
-            'rating',
-            input=inputs.int_range(1,5),
+            'url',
             required=True,
-            help='No rating provided',
-            location=['form', 'json']
-        )
-        self.reqparse.add_argument(
-            'comment',
-            nullable=True,
-            required=False,
+            help='No course url provided',
             location=['form', 'json'],
-            default=''
+            type=inputs.url
         )
         super().__init__()
 
