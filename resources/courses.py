@@ -33,6 +33,31 @@ class CourseList(Resource):
 
 
 class Course(Resource):
+    def __init__(self):
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument(
+            'course',
+            type=inputs.positive(),
+            required=True,
+            help='No course provided',
+            location=['form', 'json']
+        )
+        self.reqparse.add_argument(
+            'rating',
+            input=inputs.int_range(1,5),
+            required=True,
+            help='No rating provided',
+            location=['form', 'json']
+        )
+        self.reqparse.add_argument(
+            'comment',
+            nullable=True,
+            required=False,
+            location=['form', 'json'],
+            default=''
+        )
+        super().__init__()
+
     def get(self, id):
         return jsonify({'title': 'Python Basics'})
 
