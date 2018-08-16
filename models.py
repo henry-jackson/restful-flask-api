@@ -15,7 +15,7 @@ class Course(Model):
 
 
 class Review(Model):
-    course = ForeignKeyField(Course, related_name='review+set')
+    course = ForeignKeyField(Course, backref='review_set')
     rating = IntegerField()
     comment = TextField(default='')
     created_at = DateTimeField(default=datetime.datetime.now)
