@@ -1,7 +1,7 @@
 from flask import jsonify, Blueprint, url_for, abort
 
 from flask_restful import (Resource, Api, reqparse,
-                           inputs, marshal_with, fields)
+                           inputs, marshal_with, fields, marshal)
 
 import models
 
@@ -54,18 +54,17 @@ class ReviewList(Resource):
         )
         super().__init__()
 
-    @marshal_with(review_fields)
     def get(self):
-        return {'reviews': [(add_course(review))
-                            for review in models.Review.select()]}
+        reviews = [marshal(add_course(review), review_fields)
+                   for review in models.Review.select()]
+        return {'reviews': reviews}
 
     @marshal_with(review_fields)
     def post(self):
         args = self.reqparse.parse_args()
         review = models.Review.create(**args)
-        return (add_course(review), 201, {
-            'Location': url_for('resources.reviews.review', id=review.id)
-        })
+        return (add_course(review), 201,
+                {'Location': url_for('resources.reviews.review', id=review.id)})
 
 
 class Review(Resource):
@@ -74,10 +73,16 @@ class Review(Resource):
         return add_course(review_or_404(id))
 
     def put(self, id):
-        return jsonify({'course': 1, 'rating': 5})
+        args = self.reqparse.parse_args()
+        query = models.Review.update(**args).where(models.Review.id == id)
+        query.execute()
+        return (add_course(models.Review.get(models.Review.id == id)), 200,
+                {'Location': url_for('resources.reviews.review', id=id)})
 
     def delete(self, id):
-        return jsonify({'course': 1, 'rating': 5})
+        query = models.Review.delete().where(models.Review.id == id)
+        query.execute()
+        return '', 204, {'Location': url_for('resources.reviews.reviews')}
 
 
 reviews_api = Blueprint('resources.reviews', __name__)
