@@ -1,4 +1,4 @@
-from flask import jsonify, Blueprint, url_for, abort
+from flask import Blueprint, url_for, abort
 
 from flask_restful import (Resource, Api, reqparse,
                            inputs, fields, marshal_with, marshal)
