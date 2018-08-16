@@ -54,6 +54,7 @@ class Review(Model):
     rating = IntegerField()
     comment = TextField(default='')
     created_at = DateTimeField(default=datetime.datetime.now)
+    created_by = ForeignKeyField(User, backref='review_set')
 
     class Meta:
         database = DATABASE
@@ -61,5 +62,5 @@ class Review(Model):
 
 def initialize():
     DATABASE.connect()
-    DATABASE.create_tables([Course, Review], safe=True)
+    DATABASE.create_tables([User, Course, Review], safe=True)
     DATABASE.close()

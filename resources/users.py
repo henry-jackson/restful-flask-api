@@ -1,16 +1,14 @@
-from flask import Blueprint, url_for
+import json
+
+from flask import Blueprint, make_response
 
 from flask_restful import (Resource, Api, reqparse,
-                           inputs, marshal_with, fields, marshal)
+                           fields, marshal)
 
 import models
 
 user_fields = {
-    'id': fields.Integer,
-    'username': fields.String,
-    'email': fields.String,
-    'password': fields.String(default=''),
-    'created_at': fields.DateTime
+    'username': fields.String
 }
 
 
@@ -35,14 +33,22 @@ class UserList(Resource):
             help='No password provided',
             location=['form', 'json']
         )
+        self.reqparse.add_argument(
+            'verify_password',
+            required=True,
+            help='No password verification provided',
+            location=['form', 'json']
+        )
         super().__init__()
 
-    @marshal_with(user_fields)
     def post(self):
         args = self.reqparse.parse_args()
-        user = models.User.create(**args)
-        return (url_for('resources.users.user'), 201,
-                {'Location': url_for('resources.users.user', id=user.id)})
+        if args.get('password') == args.get('verify_password'):
+            user = models.User.create(**args)
+            return marshal(user, user_fields), 201
+        return make_response(json.dumps({
+            'error': 'Password and password verification do not match'
+        }), 400)
 
 
 users_api = Blueprint('resources.users', __name__)
