@@ -40,7 +40,6 @@ class User(Model):
         return HASHER.verify(self.password, password)
 
 
-
 class Course(Model):
     title = CharField()
     url = CharField(unique=True)
