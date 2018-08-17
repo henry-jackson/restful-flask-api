@@ -52,6 +52,7 @@ class CourseList(Resource):
         return {'courses': courses}
 
     @marshal_with(course_fields)
+    @auth.login_required
     def post(self):
         args = self.reqparse.parse_args()
         course = models.Course.create(**args)
