@@ -3,6 +3,7 @@ from flask import Blueprint, url_for, abort
 from flask_restful import (Resource, Api, reqparse,
                            inputs, fields, marshal_with, marshal)
 
+from auth import auth
 import models
 
 course_fields = {
