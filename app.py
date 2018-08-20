@@ -22,8 +22,6 @@ limiter.limit(config.DEFAULT_RATE, per_method=True,
               methods=["post", "put", "delete"])(courses_api)
 limiter.limit(config.DEFAULT_RATE, per_method=True,
               methods=["post", "put", "delete"])(reviews_api)
-# limiter.exempt(courses_api)
-# limiter.exempt(reviews_api)
 
 
 @app.route('/')

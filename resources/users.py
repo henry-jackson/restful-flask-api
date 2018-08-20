@@ -58,8 +58,3 @@ api.add_resource(
     '/users',
     endpoint='reviews'
 )
-# api.add_resource(
-#     User,
-#     '/users/<int:id>',
-#     endpoint='review'
-# )
